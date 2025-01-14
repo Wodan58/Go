@@ -1,0 +1,13 @@
+digraph F {
+    main [label="-0.33"];
+    black1 [label="0.33"];
+    black2 [label="0.66"];
+    black3 [label="1"];
+    white [label="-1"];
+
+    main -> black1;
+    black1 -> black2;
+    black2 -> black1;
+    black2 -> black3;
+    main -> white;
+}

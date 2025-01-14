@@ -1,0 +1,12 @@
+digraph ambigu {
+    main [label="2.33"];
+    black1 [label="3"];
+    white1 [label="1.66"];
+    black2 [label="2.33"];
+    white2 [label="1"];
+
+    main -> black1;
+    main -> white1;
+    white1 -> black2;
+    white1 -> white2;
+}

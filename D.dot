@@ -1,0 +1,8 @@
+digraph D {
+    main [label="0.5"];
+    black [label="1"];
+    white [label="0"];
+
+    main -> black;
+    main -> white;
+}

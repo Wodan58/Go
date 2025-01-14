@@ -1,0 +1,11 @@
+digraph E {
+    main [label="-0.33"];
+    black [label="0"];
+    white1 [label="-0.66"];
+    white2 [label="-1"];
+
+    main -> black;
+    main -> white1;
+    white1 -> white2;
+    white1 -> main;
+}

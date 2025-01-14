@@ -1,0 +1,8 @@
+digraph C {
+    main [label="3.5"];
+    black [label="4"];
+    white [label="3"];
+
+    main -> black;
+    main -> white;
+}

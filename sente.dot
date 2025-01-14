@@ -1,0 +1,17 @@
+digraph sente {
+    main [label="4.66"];
+    black1 [label="5.66"];
+    white1 [label="3.0"];
+    black2 [label="4.66"];
+    white2 [label="?"];
+    black3 [label="3.0"];
+    white3 [label="-29"];
+
+    main -> black1;
+    main -> white1;
+    white1 -> black2;
+    white1 -> white2;
+    white2 -> white1;
+    white2 -> black3;
+    white2 -> white3;
+}
