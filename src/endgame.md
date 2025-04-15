@@ -9,7 +9,176 @@ without.
 
 \newpage
 
-## 1.1 Not a problem
+## 1.1 Theory
+
+This board shows moves that have values between 0 and 1 as a preparation for
+the problem that is presented later on.
+
+\cleargoban
+\gobansize{13}
+\black{a2,a5,a7,a11,a13,b1,b3,b5,b6,b7,b10,b11,b12,c2,c7,c8,d1,d2,d4,d8,d9,d10,d11,e4,e6,e9,e11,f4,f5,f6,f10,f11,f12,f13,g6,g7,h7,h8,h9,h10,h11,h12,j7,j9,j12,k8,k12,l2,l3,l12,l13,m1,m3,m11,m12,n2,n3,n11,n13}
+\white{a4,a8,a10,b4,b8,b9,b13,c3,c4,c5,c6,c9,c10,c11,c12,c13,d3,d6,d7,d12,e1,e2,e3,e7,e8,e12,e13,f3,f8,g4,g5,g8,g9,g10,g11,g12,g13,h4,h6,j4,j5,j10,j11,k1,k2,k3,k6,k7,k9,k11,l1,l4,l8,l10,l11,m4,m10,n4,n10}
+\largegoban\showgoban
+
+\newpage
+
+### 1.1.1 Locations
+
+The locations of the moves are marked such that they can be referred to later
+on. Presentation will follow increasing values.
+
+\cleargoban
+\gobansize{13}
+\black{a2,a5,a7,a11,a13,b1,b3,b5,b6,b7,b10,b11,b12,c2,c7,c8,d1,d2,d4,d8,d9,d10,d11,e4,e6,e9,e11,f4,f5,f6,f10,f11,f12,f13,g6,g7,h7,h8,h9,h10,h11,h12,j7,j9,j12,k8,k12,l2,l3,l12,l13,m1,m3,m11,m12,n2,n3,n11,n13}
+\white{a4,a8,a10,b4,b8,b9,b13,c3,c4,c5,c6,c9,c10,c11,c12,c13,d3,d6,d7,d12,e1,e2,e3,e7,e8,e12,e13,f3,f8,g4,g5,g8,g9,g10,g11,g12,g13,h4,h6,j4,j5,j10,j11,k1,k2,k3,k6,k7,k9,k11,l1,l4,l8,l10,l11,m4,m10,n4,n10}
+\gobansymbol{h13}{A}
+\gobansymbol{f9}{B}
+\gobansymbol{j8}{C}
+\gobansymbol{f7}{D}
+\gobansymbol{j6}{E}
+\gobansymbol{d5}{F}
+\gobansymbol{a3}{G}
+\largegoban\showgoban
+
+\newpage
+
+### 1.1.2 Neutral points
+
+There are two neutral points, at locations B and D. Only D is shown here.
+
+\cleargoban
+\gobansize{13}
+\black{a2,a5,a7,a11,a13,b1,b3,b5,b6,b7,b10,b11,b12,c2,c7,c8,d1,d2,d4,d8,d9,d10,d11,e4,e6,e9,e11,f4,f5,f6,f10,f11,f12,f13,g6,g7,h7,h8,h9,h10,h11,h12,j7,j9,j12,k8,k12,l2,l3,l12,l13,m1,m3,m11,m12,n2,n3,n11,n13}
+\white{a4,a8,a10,b4,b8,b9,b13,c3,c4,c5,c6,c9,c10,c11,c12,c13,d3,d6,d7,d12,e1,e2,e3,e7,e8,e12,e13,f3,f8,g4,g5,g8,g9,g10,g11,g12,g13,h4,h6,j4,j5,j10,j11,k1,k2,k3,k6,k7,k9,k11,l1,l4,l8,l10,l11,m4,m10,n4,n10}
+\largegoban\showgoban[e6,g8]
+
+Assuming that the black and white stones are independently alive, that is have
+two eyes, the empty point in the center must be filled or else the surrounding
+stones are said to be alive in *seki* and cannot contain points. That is
+according to the official Japanese rules. Under Chinese rules stones and empty
+points are counted and neutral points are actually worth a point.
+
+### 1.1.3 One point ko
+
+A one point *ko* is a *ko* where there is a difference of one point between
+winning and losing. There is one such *ko* present at location E.
+
+\cleargoban
+\gobansize{13}
+\black{a2,a5,a7,a11,a13,b1,b3,b5,b6,b7,b10,b11,b12,c2,c7,c8,d1,d2,d4,d8,d9,d10,d11,e4,e6,e9,e11,f4,f5,f6,f10,f11,f12,f13,g6,g7,h7,h8,h9,h10,h11,h12,j7,j9,j12,k8,k12,l2,l3,l12,l13,m1,m3,m11,m12,n2,n3,n11,n13}
+\white{a4,a8,a10,b4,b8,b9,b13,c3,c4,c5,c6,c9,c10,c11,c12,c13,d3,d6,d7,d12,e1,e2,e3,e7,e8,e12,e13,f3,f8,g4,g5,g8,g9,g10,g11,g12,g13,h4,h6,j4,j5,j10,j11,k1,k2,k3,k6,k7,k9,k11,l1,l4,l8,l10,l11,m4,m10,n4,n10}
+\largegoban\showgoban[h7,l9]
+
+A black stone is in *atari* and can be captured by white. Black can make a
+*ko* threat and if white answers this threat, black can recapture. If black has
+fewer *ko* threats than white, then white can fill the *ko* and count the black
+stone that was captured as prisoner. There is a difference of three moves
+between a black win and a white win of the *ko* and that is why it can be said
+that each move in the *ko* has a value of 0.33 points. The black stone in
+*atari* can be counted as a minus of 0.33 points for black.
+
+### 1.1.4 One point
+
+There is one point that can be gained by black at location F. If black moves
+first, black can surround a point. If white moves first, only a neutral point
+remains.
+
+\cleargoban
+\gobansize{13}
+\black{a2,a5,a7,a11,a13,b1,b3,b5,b6,b7,b10,b11,b12,c2,c7,c8,d1,d2,d4,d8,d9,d10,d11,e4,e6,e9,e11,f4,f5,f6,f10,f11,f12,f13,g6,g7,h7,h8,h9,h10,h11,h12,j7,j9,j12,k8,k12,l2,l3,l12,l13,m1,m3,m11,m12,n2,n3,n11,n13}
+\white{a4,a8,a10,b4,b8,b9,b13,c3,c4,c5,c6,c9,c10,c11,c12,c13,d3,d6,d7,d12,e1,e2,e3,e7,e8,e12,e13,f3,f8,g4,g5,g8,g9,g10,g11,g12,g13,h4,h6,j4,j5,j10,j11,k1,k2,k3,k6,k7,k9,k11,l1,l4,l8,l10,l11,m4,m10,n4,n10}
+\largegoban\showgoban[c4,f6]
+
+There is a two move difference between a black first move and a white first
+move. Because of that a move at this location can be valuated as 0.5 points and
+the amount of territory that black can count at the start is also 0.5 points.
+
+### 1.1.5 One point and ko
+
+At location E white can surround one point. If black moves first, a *ko*
+remains.
+
+\cleargoban
+\gobansize{13}
+\black{a2,a5,a7,a11,a13,b1,b3,b5,b6,b7,b10,b11,b12,c2,c7,c8,d1,d2,d4,d8,d9,d10,d11,e4,e6,e9,e11,f4,f5,f6,f10,f11,f12,f13,g6,g7,h7,h8,h9,h10,h11,h12,j7,j9,j12,k8,k12,l2,l3,l12,l13,m1,m3,m11,m12,n2,n3,n11,n13}
+\white{a4,a8,a10,b4,b8,b9,b13,c3,c4,c5,c6,c9,c10,c11,c12,c13,d3,d6,d7,d12,e1,e2,e3,e7,e8,e12,e13,f3,f8,g4,g5,g8,g9,g10,g11,g12,g13,h4,h6,j4,j5,j10,j11,k1,k2,k3,k6,k7,k9,k11,l1,l4,l8,l10,l11,m4,m10,n4,n10}
+\largegoban\showgoban[g4,j7]
+
+The *ko* that remains is a minus of 0.33 points for white. The total difference
+between a first white play and a first black play is therefore 1.33 points.
+This has to be divided by two in order to arrive at the value of a move at this
+location and that results in 0.66 points. White has on average 0.33 points at
+this location.
+
+### 1.1.6 A corridor
+
+There is a corridor at location A. Such corridors oftentimes occur in books
+about mathematical go and almost never on a real board.
+
+\cleargoban
+\gobansize{13}
+\black{a2,a5,a7,a11,a13,b1,b3,b5,b6,b7,b10,b11,b12,c2,c7,c8,d1,d2,d4,d8,d9,d10,d11,e4,e6,e9,e11,f4,f5,f6,f10,f11,f12,f13,g6,g7,h7,h8,h9,h10,h11,h12,j7,j9,j12,k8,k12,l2,l3,l12,l13,m1,m3,m11,m12,n2,n3,n11,n13}
+\white{a4,a8,a10,b4,b8,b9,b13,c3,c4,c5,c6,c9,c10,c11,c12,c13,d3,d6,d7,d12,e1,e2,e3,e7,e8,e12,e13,f3,f8,g4,g5,g8,g9,g10,g11,g12,g13,h4,h6,j4,j5,j10,j11,k1,k2,k3,k6,k7,k9,k11,l1,l4,l8,l10,l11,m4,m10,n4,n10}
+\largegoban\showgoban[g12,l13]
+
+If black moves first, black has two points of territory. If white moves first,
+the location is not finished. If black answers, black has one point of
+territory and if white is allowed to move again, black has zero points of
+territory. On average, after white moves, black has 0.5 points of territory.
+The difference at the start is 1.5 points and two moves. That is why a move at
+this location can be counted as 0.75 points and the territory that black can
+expect at the start is 1.25 points.
+
+### 1.1.7 One point sente
+
+There is one move that normally can be considered one point *sente* and that is
+at location G.
+
+\cleargoban
+\gobansize{13}
+\black{a2,a5,a7,a11,a13,b1,b3,b5,b6,b7,b10,b11,b12,c2,c7,c8,d1,d2,d4,d8,d9,d10,d11,e4,e6,e9,e11,f4,f5,f6,f10,f11,f12,f13,g6,g7,h7,h8,h9,h10,h11,h12,j7,j9,j12,k8,k12,l2,l3,l12,l13,m1,m3,m11,m12,n2,n3,n11,n13}
+\white{a4,a8,a10,b4,b8,b9,b13,c3,c4,c5,c6,c9,c10,c11,c12,c13,d3,d6,d7,d12,e1,e2,e3,e7,e8,e12,e13,f3,f8,g4,g5,g8,g9,g10,g11,g12,g13,h4,h6,j4,j5,j10,j11,k1,k2,k3,k6,k7,k9,k11,l1,l4,l8,l10,l11,m4,m10,n4,n10}
+\largegoban\showgoban[a1,e4]
+
+If black moves first, black surrounds an extra point of territory. If white
+moves first, black normally answers, or else the group is in jeopardy. Black
+then does not surround a point. The difference between a black first play and
+a white first play is one point. The difference is also one move and that is
+why a move at this location can be counted as 1.0 point. But the situation on
+the board with a double *ko* in the upper left gives black an unlimited number
+of *ko* threats, allowing black to postpone the answer until only one point
+*ko*'s remain on the board. That makes this location similar to location E and
+it can then be counted as 0.66 points.
+
+### 1.1.8 Summary
+
+It is now possible to calculate the territory that each player has surrounded
+at this point in time.
+
++-------------+-------+--------------+--------+
+| White       | 41.66 + Black        | 10.08  |
++-------------+-------+--------------+--------+
+| upper left\ | 13\   | upper left\  |  2\    |
+| bottom\     | 11\   | upper right\ |  3.75\ |
+| right       | 17.66 | lower left\  |  2.33\ |
+|             |       | lower right\ |  2     |
++-------------+-------+--------------+--------+
+
+The sequence of moves is not all that interesting. White starts with A, as that
+is the largest point. Locations A and F are now *miai*, as are locations E and
+G. What remains is location C that is blacks privilage anyways. That is what
+happens if it is white's turn to play. If it is blacks turn to play, black
+will also choose A. Locations E and G are again *miai*. This means that white
+will get F and black will again get C. Compared to a white start, black has
+gained one point at location A. The privilage of the first move gains the
+player who has *sente* one extra point.
+
+The fractions in the territory count disappear. At the end there are only
+integral points, except for a fractional *komi*.
+
+\newpage
+
+## 1.2 Not a problem
 
 This is an endgame problem, with a twist. Normally a problem is formulated as:
 Black to play and win. But in this case it does not look like black can win,
@@ -25,7 +194,7 @@ Black to move, Japanese rules, *komi* 6.5, black has 2 prisoners.
 
 \newpage
 
-## 1.2 Move sequence
+## 1.3 Move sequence
 
 The largest move would normally be located at 4, counting as one point *sente*.
 However, in this case black has an abundance of *ko* threats in the upper left
@@ -64,7 +233,7 @@ both. But what is the point? White already secures a win without capturing a
 
 \newpage
 
-## 1.3 Prediction
+## 1.4 Prediction
 
 The question is whether the result can be predicted at the start, without
 putting any stones on the board.
@@ -131,7 +300,7 @@ White gave up on the 0.33 points in *ko* and gets 28.5 points. White wins by
 
 \newpage
 
-## 1.4 Problem
+## 1.5 Problem
 
 \cleargoban
 \gobansize{13}
@@ -144,7 +313,7 @@ Chinese rules. Does this change anything?
 
 \newpage
 
-## 1.5 Play-out
+## 1.6 Play-out
 
 Moves shown are in order of decreasing value. The first move is considered one
 point *sente*, even though it is really *gote* in this problem.
@@ -165,7 +334,7 @@ Black wins by occupying the last neutral point as well as filling the last
 
 \newpage
 
-## 1.6 White tries the bottom
+## 1.7 White tries the bottom
 
 White should strive to create a secondary 1-point *ko* and prevent a third.
 
@@ -180,7 +349,7 @@ Black doesn't allow that to happen. Black wins.
 
 \newpage
 
-## 1.7 White tries the top
+## 1.8 White tries the top
 
 White can try at the top but that location has more variations than the bottom.
 
@@ -195,7 +364,7 @@ White succeeds when black answers at 3. White wins.
 
 \newpage
 
-## 1.8 Black thwarts white's plan
+## 1.9 Black thwarts white's plan
 
 The alternative for black is to not answer the white move, preventing a
 secondary *ko*.
@@ -211,7 +380,7 @@ This is still a win for white.
 
 \newpage
 
-## 1.9 Black creates a secondary ko
+## 1.10 Black creates a secondary ko
 
 Anticipating a third *ko*, black creates a secondary *ko*.
 
@@ -228,7 +397,7 @@ White creates the third *ko* and immediately finishes it. White wins again.
 
 \newpage
 
-## 1.10 Different start
+## 1.11 Different start
 
 Black tries a different first move.
 
@@ -245,7 +414,7 @@ or three does not matter. So, what happens if white takes the *ko* instead of
 
 \newpage
 
-## 1.11 White takes the ko
+## 1.12 White takes the ko
 
 White is going for an exchange.
 
@@ -257,13 +426,13 @@ White is going for an exchange.
 \largegoban\showgoban
 
 Black has 92 points and that is more than is needed. Black wins by 92 - 88.25 =
-3.75 points. White cannot play the *ko*. That means that 1.10 is the solution.
+3.75 points. White cannot play the *ko*. That means that 1.11 is the solution.
 
 \newpage
 
-## 1.12 Explanation
+## 1.13 Explanation
 
-There is no guarantee that the solution in 1.10 is correct.
+There is no guarantee that the solution in 1.11 is correct.
 
 \cleargoban
 \gobansize{13}
@@ -276,7 +445,7 @@ There is no guarantee that the solution in 1.10 is correct.
 \gobansymbol{f10}{E}
 \largegoban\showgoban
 
-Here is the reasoning behind the solution in 1.10: black takes away the
+Here is the reasoning behind the solution in 1.11: black takes away the
 possibility of a secondary *ko* at location A that white can create in *sente*.
 That leaves the positions at B and C *miai*. If white plays at B, black plays
 at C and there is only one *ko*. Or white plays at C and black plays at B and
@@ -288,7 +457,7 @@ below.
 
 \newpage
 
-## 1.13 Variation
+## 1.14 Variation
 
 This variation doesn't help white either.
 
@@ -303,10 +472,10 @@ Black wins.
 
 \newpage
 
-## 1.14 The real game
+## 1.15 The real game
 
 The real game was played on 19x19. Black had enough *ko* threats, although not
-as many as in the problem diagram. The solution of 1.10 is not available. The
+as many as in the problem diagram. The solution of 1.11 is not available. The
 double *ko* only serves as a reminder that black has enough *ko* threats.
 
 \cleargoban
@@ -320,7 +489,7 @@ Black has 88 points. White wins by 0.25 points. Where did black go wrong?
 
 \newpage
 
-## 1.15 Black wins
+## 1.16 Black wins
 
 Black should have created a third *ko*.
 
@@ -336,7 +505,7 @@ points. Where did white go wrong?
 
 \newpage
 
-## 1.16 White wins
+## 1.17 White wins
 
 White should not make the exchange at the bottom.
 
@@ -353,7 +522,7 @@ correct moves.
 
 \newpage
 
-## 1.17 Steps
+## 1.18 Steps
 
 Going back to the beginning.
 
@@ -376,7 +545,7 @@ played. Neutral points are disregarded.
 
 \newpage
 
-## 1.18 Sente
+## 1.19 Sente
 
 The next step is to look out for moves that can be played in *sente*.
 
@@ -396,12 +565,12 @@ The moves A-F are candidates and they are all white.
 
 \newpage
 
-## 1.19 Counting
+## 1.20 Counting
 
 Each of the endgame moves needs to be valuated, allowing them to be played in
 order of decreasing value.
 
-### 1.19.1 Location A
+### 1.20.1 Location A
 
 0.0 points.
 
@@ -414,7 +583,7 @@ order of decreasing value.
 There is no endgame to be played at A. The black stones are dead in a double
 *ko*. This *ko* enables black with an unlimited amount of *ko* threats.
 
-### 1.19.2 Location B
+### 1.20.2 Location B
 
 0.0 points.
 
@@ -466,7 +635,7 @@ once, might connect. That would be a mistake as it loses points. The endgame is
 all about points and weaknesses are far less important than they are in the
 middle game.
 
-### 1.19.3 Location C
+### 1.20.3 Location C
 
 0.75 points.
 
@@ -545,7 +714,7 @@ White has an alternative way of play, as shown here. This is *sente* for white
 and creates a secondary *ko*, something that white needs. The value of the move
 is 0.66 and as such inferior to the *gote* sequence.
 
-### 1.19.4 Location D
+### 1.20.4 Location D
 
 0.5 points.
 
@@ -582,7 +751,7 @@ at this location is also worth 0.5 points.
 
 \newpage
 
-### 1.19.5 Location E
+### 1.20.5 Location E
 
 0.33 points.
 
@@ -617,7 +786,7 @@ points of territory. The total number of contested points is 1 and the
 difference is 3 moves. That is why a move at this location can be valuated as
 0.33 points.
 
-### 1.19.6 Location F
+### 1.20.6 Location F
 
 0.66 points.
 
@@ -653,7 +822,7 @@ When white plays as shown, white has 1 point of territory. The difference
 between a black start and a white start at this location is $1\frac{1}{3}$
 point, or 0.66 points per move.
 
-### 1.19.7 Location G
+### 1.20.7 Location G
 
 1.0 points.
 
@@ -707,7 +876,7 @@ move, as that limits black's losses.
 
 \newpage
 
-### 1.19.8 Location H
+### 1.20.8 Location H
 
 0.66 points.
 
@@ -778,7 +947,7 @@ about it. There is no urgent need to answer the first move.
 
 \newpage
 
-## 1.20 Table
+## 1.21 Table
 
 The endgame moves can now be tabulated.
 
@@ -796,7 +965,7 @@ The endgame moves can now be tabulated.
 | H    | 0.66           |
 +------+----------------+
 
-## 1.21 Conclusion
+## 1.22 Conclusion
 
 It is only natural that moves are played according to their value, in
 decreasing order. That means that G should be played first, then C and then
@@ -826,7 +995,7 @@ have taken the stone at the bottom. That would even the number of moves in a
 
 \newpage
 
-## 1.22 Glossary
+## 1.23 Glossary
 
 #### Sente
 
@@ -863,12 +1032,12 @@ percentage of around 50%.
 
 \newpage
 
-## 1.23 Move trees
+## 1.24 Move trees
 
 Move-trees of the other moves can also be created. They are not necessary but
 might be helpful in understanding this kind of notation.
 
-### 1.23.1 Location C
+### 1.24.1 Location C
 
 0.75 points.
 
@@ -885,7 +1054,7 @@ bonus of 0.25 points at location B, bringing the value to 0.75 points.
 
 \newpage
 
-### 1.23.2 Location D
+### 1.24.2 Location D
 
 0.5 points.
 
@@ -901,7 +1070,7 @@ A move at this location is worth 0.5 points.
 
 \newpage
 
-### 1.23.3 Location E
+### 1.24.3 Location E
 
 0.33 points.
 
@@ -917,7 +1086,7 @@ A move at this location is worth 0.33 points.
 
 \newpage
 
-### 1.23.4 Location F
+### 1.24.4 Location F
 
 0.66 points.
 
